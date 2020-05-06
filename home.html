@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Home Page</h1>
+    <h4> id_token: </h4>
+    <div id="idtoken" style="max-width: 400px;line-break:anywhere;"></div><br>
+    <button onclick="gotoJWTIO()">View in jwt.io</button>        
+    <script>
+        console.log(document.location.hash);
+        document.getElementById('idtoken').innerHTML = document.location.hash.substr(1);
+
+        function gotoJWTIO(){
+            var url =  `http://www.jwt.io/?id_token=${document.getElementById('idtoken').innerHTML}`;
+            window.open(url, '_blank');
+        }
+
+        </script>
+</body>
+</html>
