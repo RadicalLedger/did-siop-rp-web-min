@@ -10,8 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/did-siop@1.3.0/dist/browser/did-siop.min.js"></script>
     <script>
     
-        document.addEventListener('DOMContentLoaded', function() {
-            setRequest();
+        document.addEventListener('DOMContentLoaded', async function() {
+            await startProcess();
             }, false);    
 
         let siop_rp = null;
@@ -34,25 +34,25 @@
                 DID_SIOP.KEY_FORMATS.HEX, //Format in which the key is supplied. List of values is given below
                 DID_SIOP.ALGORITHMS['ES256K-R']
             );
-        }
-    
-        // async function login(){
-        //     let request = await siop_rp.generateRequest();
-        //     let url = new URL(request);
-        //     window.open(url);
 
-        // }
-        async function setRequest(){
-            await startProcess();            
             let request = await siop_rp.generateRequest();
             let url = new URL(request);
             console.log('url', url);
 
-            let btn = document.getElementById('did-siop-login');
             document.getElementById("did-siop-login").setAttribute("data-did-siop", url);
-            // window.open(url);
 
         }
+    
+        // async function setRequest(){
+        //     await startProcess();            
+        //     let request = await siop_rp.generateRequest();
+        //     let url = new URL(request);
+        //     console.log('url', url);
+
+        //     let btn = document.getElementById('did-siop-login');
+        //     document.getElementById("did-siop-login").setAttribute("data-did-siop", url);
+
+        // }
 
         async function loginWithError(){
             let request = 'openid://?response_type=id_token&client_id=localhost:8080/home.html&scope=openid did_authn&request=';
