@@ -62,7 +62,7 @@ async function generateRequestObject(){
 
     console.log('Request generated ...', request);
     return request;
-    }
+}
 
 const port = process.env.PORT || 5001;
 http.createServer(app).listen(port, () => {
