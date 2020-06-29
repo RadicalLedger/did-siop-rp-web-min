@@ -19,7 +19,7 @@ node server.js
 
 * index.html is a public page in a website
 * As this page get loaded, 
-    * Installed did-siop browser extension bind an event to the login button (since it has the custom attribute ```data-did-siop```)
+    * Installed did-siop browser extension binds an event to the login button (since it has the custom attribute ```data-did-siop```)
     * Then requests the Authentication Request Object (ARO) from the server
 * Server generate the ARO using Relying Party's (RP) DID and Private Key (```server.js/generateRequestObject```)
     * Important to note, the Private Key of the RP is in the backend, so no compromise on the key
