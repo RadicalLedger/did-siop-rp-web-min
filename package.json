@@ -1,16 +1,16 @@
 {
   "name": "did-siop-rp-min",
   "version": "1.0.0",
-  "description": "",
+  "description": "Minimum implementation of SIOP login using DID",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "ZeDeId",
   "license": "ISC",
   "dependencies": {
-    "did-siop": "^1.3.0",
+    "@zedeid-sdk/zedeid-did-siop-lib": "^0.0.9-10",
     "express": "^4.17.1",
     "http": "0.0.1-security"
   }

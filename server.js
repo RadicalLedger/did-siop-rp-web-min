@@ -6,7 +6,8 @@
 
 const express = require('express');
 const http = require('http');
-const DID_SIOP = require('did-siop');
+const DID_SIOP = require('@zedeid-sdk/zedeid-did-siop-lib');
+
 
 var app = express();
 
@@ -37,28 +38,18 @@ async function getRequestObject(req, res, next) {
     res.send(JSON.stringify({'reqObj':requestObject}));
 }
 
-async function generateRequestObject(){
-    console.log('startProcess');
-    var request;
-    
-    siop_rp = await DID_SIOP.RP.getRP(
-        'localhost:5001/home', // RP's redirect_uri
-        'did:ethr:0xA51E8281c201cd6Ed488C3701882A44B1871DAd6', // RP's did
-        {
-            "jwks_uri": "https://uniresolver.io/1.0/identifiers/did:example:0xab;transform-keys=jwks",
-            "id_token_signed_response_alg": ["ES256K-R", "EdDSA", "RS256"]
-        }
-    )
-    console.log('Got RP instance ....');
-    siop_rp.addSigningParams(
-        '8329a21d9ce86fa08e75354469fb8d78834f126415d5b00eef55c2f587f3abca', // Private key
-        'did:ethr:0xA51E8281c201cd6Ed488C3701882A44B1871DAd6#owner', // Corresponding authentication method in RP's did document (to be used as kid value for key)
-        DID_SIOP.KEY_FORMATS.HEX, //Format in which the key is supplied. List of values is given below
-        DID_SIOP.ALGORITHMS['ES256K-R']
-    );
+const redirect_uri ='http://localhost:5001/home'
+const privateKey = '047a86aed1b431781b7498872f96a355bc3787f1a20cd84755cbd2eeed47be83';
+const did = 'did:ethr:0xAAE6a810C497C1Dd79afa4598bA58583939f4384';
+const kid = "did:ethr:0xAAE6a810C497C1Dd79afa4598bA58583939f4384#controller";
 
-    console.log('RP SigningParams added ...');
-    request = await siop_rp.generateRequest();
+
+async function generateRequestObject(){
+    console.log('generateRequestObject');
+    
+    const relyingParty = new DID_SIOP.RP(redirect_uri,did,kid,privateKey);
+    await relyingParty.init();
+    const request = await relyingParty.generateRequest();
 
     console.log('Request generated ...', request);
     return request;
