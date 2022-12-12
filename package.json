@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@zedeid-sdk/zedeid-did-siop-lib": "^0.0.9-10",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "http": "0.0.1-security"
   }
 }
