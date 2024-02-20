@@ -3,10 +3,13 @@ import CustomDidResolver from './custom-did-resolver.js';
 import path from 'path';
 import * as SIOP from 'did-siop';
 import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 
-const PORT = 5001;
+const PORT = process.env.PORT;
 const __dirname = path.resolve();
 
 const did = 'did:key:z6MktHAYXRescgkNpienxhBEM5HMysSdQP9UgxiTxx9Tfv6Y';
