@@ -1,0 +1,22 @@
+{
+    "name": "did-siop-min-rp",
+    "version": "2.0.0",
+    "description": "Minimum implementation of SIOP login using DID",
+    "main": "server/index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node server/index.js",
+        "dev": "nodemon server/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Radical Ledger",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^1.6.7",
+        "cors": "^2.8.5",
+        "did-siop": "2.0.7",
+        "express": "^4.18.2",
+        "nodemon": "^3.0.3"
+    },
+    "devDependencies": {}
+}

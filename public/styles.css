@@ -1,0 +1,41 @@
+:root {
+    --theme-color: #24c3b5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.button {
+    outline: none;
+    padding: 10px 30px;
+    border: none;
+    background-color: var(--theme-color);
+    border-radius: 7px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-size: medium;
+    color: #fff;
+    font-weight: 500;
+}
+
+.button.logout {
+    background-color: #b23b3b;
+}
