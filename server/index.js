@@ -9,10 +9,8 @@ const app = express();
 const PORT = 5001;
 const __dirname = path.resolve();
 
-const did = 'did:key:z6MkpnvkJhHH1t5G8gTTeSrbEymsjrRhqFHHnZQg3pFrnzUL';
-//const did = 'did:key:z6MktHAYXRescgkNpienxhBEM5HMysSdQP9UgxiTxx9Tfv6Y';
-const pvt_key = '7f60c9aa269063faa24455f71ef9be847a129ca63b2285105186aee18f998c45';
-//const pvt_key = '87d5fc062f3258be23ac0af0060d692033d2398c1aebed4cdffd809c12ae5862';
+const did = 'did:key:z6MktHAYXRescgkNpienxhBEM5HMysSdQP9UgxiTxx9Tfv6Y';
+const pvt_key = '87d5fc062f3258be23ac0af0060d692033d2398c1aebed4cdffd809c12ae5862';
 const pub_key = 'cd6d96b6a0a4f25d37c34f39f67477acbb9c7e75e9c4120483f72cc8449ddd85';
 
 app.use(cors());
