@@ -8,16 +8,13 @@ if (window.location.search.includes('code')) {
             if (!data?.valid) {
                 window.location.assign('/');
             } else {
-                document.getElementById('home-title').textContent =
-                    'You have successfully logged in';
+                $('#home-title').text('You have successfully logged in');
             }
         })
         .catch((err) => {
             console.log(err);
 
-            document.getElementById('home-title').textContent = `Error: ${
-                err.message || 'Failed to validate the request'
-            }`;
+            $('#home-title').text(`Error: ${err.message || 'Failed to validate the request'}`);
         });
 } else {
     window.location.assign('/');
